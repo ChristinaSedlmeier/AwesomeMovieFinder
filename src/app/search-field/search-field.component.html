@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12 col-md-4">
+    <mat-form-field class="search-field-container">
+      <mat-label>Search for keyword</mat-label>
+      <input
+        matInput
+        placeholder="{{ placeholderString }}"
+        [(ngModel)]="userInput"
+        (input)="updateMovieData()"
+      />
+    </mat-form-field>
+  </div>
+</div>
