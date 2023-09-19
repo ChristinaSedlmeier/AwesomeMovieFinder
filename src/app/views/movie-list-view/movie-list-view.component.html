@@ -1,4 +1,4 @@
-<div *ngIf="(movieList$)| async as movieList">
+<div *ngIf="movieList$ | async as movieList">
   <div *ngFor="let movie of movieList">
     <movie-detail-card [movie]="movie"></movie-detail-card>
   </div>
