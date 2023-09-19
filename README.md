@@ -12,4 +12,4 @@ Awesome Movie Finder is a web application that allows users to search for and di
    ```bash
     npm start
 3. Open your web browser and visit http://localhost:4200 to access the application.
-4. Use the search bar to find movies, click on a movie to view its details, and explore the Awesome Movie Finder application.
+4. Use the search bar to find movies and explore the Awesome Movie Finder application.
