@@ -9,7 +9,7 @@ import { MovieDetailsModel } from '../models/movieDetailsModel';
   providedIn: 'root',
 })
 export class MovieService {
-  private movieDataSubject = new BehaviorSubject<any>(null);
+  private movieDataSubject = new BehaviorSubject<MovieModel[]>([]);
 
   constructor(private http: HttpClient) {}
 
