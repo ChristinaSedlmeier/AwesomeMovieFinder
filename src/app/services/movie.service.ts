@@ -42,11 +42,11 @@ export class MovieService {
   }
 
   /**
-   * Loads movies from an API based on a search string and updates the movie data subject.
+   * Loads movies from an API based on a search string and updates the movieDataSubject.
    *
    * @param {string} searchString - The search string used to query movies from the API.
-   * This method fetches movies matching the search and updates the movie data subject with the results.
-   * If successful, the movie data subject emits an updated list of movie models.
+   * This method fetches movies matching the search and updates the movieDataSubject with the results.
+   * If successful, the movieDataSubject emits an updated list of movie models.
    */
   public loadMoviesBySearchString(searchString: string): void {
     this.http
