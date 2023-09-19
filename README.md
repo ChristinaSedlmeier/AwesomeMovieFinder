@@ -1,7 +1,7 @@
 # AwesomeMovieFinder
 Awesome Movie Finder is a web application that allows users to search for and discover information about movies, including details like title, release date, cast, and more. It provides a user-friendly interface to explore a vast collection of movies.
 
-##Installation 
+## Installation 
 1. Clone the repository
 2. Install dependencies: npm install
 
