@@ -1,6 +1,6 @@
 <div *ngIf="movie">
   <mat-card class="card-container">
-    <mat-card-title class="pb-3">{{ movie.title }}</mat-card-title>
+    <mat-card-title class="text-bold pb-3">{{ movie.title }}</mat-card-title>
     <div class="row">
       <div class="col-12 col-md-3">
         <div>
@@ -8,9 +8,9 @@
         </div>
       </div>
       <div class="col-12 col-md-9">
-        <div>Year: {{ movie.year }}</div>
-        <div>Actors: {{ movie.actors }}</div>
-        <div>Ranking: {{ movie.rank }}</div>
+        <p><span class="text-bold">Year: </span>{{ movie.year }}</p>
+        <p><span class="text-bold">Actors: </span>{{ movie.actors }}</p>
+        <p><span class="text-bold">Ranking: </span>{{ movie.rank }}</p>
       </div>
     </div>
   </mat-card>

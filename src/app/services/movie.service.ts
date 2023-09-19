@@ -2,25 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { MovieModel } from '../models/movieModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
-  private apiUrl = 'https://search.imdbot.workers.dev/';
   private movieDataSubject = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) {}
 
-  public getMovieData(): Observable<any> {
+  public getMovieData(): Observable<MovieModel[]> {
     return this.movieDataSubject.asObservable();
   }
 
   public loadMoviesBySearchString(searchString: string): void {
-    const url = `${this.apiUrl}/?q=${searchString}`;
-
     this.http
-      .get<any>(url)
+      .get<any>(`${environment.apiUrl}/?q=${searchString}`)
       .pipe(
         map((response) =>
           response.description.map(
