@@ -13,10 +13,24 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Retrieves the list of movies as an observable stream.
+   *
+   * @returns {Observable<MovieModel[]>} An observable stream of movie data.
+   * Use this method to access and subscribe to the list of movies.
+   * Changes to the movie list will be automatically reflected in the emitted data.
+   */
   public getMovieList(): Observable<MovieModel[]> {
     return this.movieDataSubject.asObservable();
   }
 
+  /**
+   * Retrieves detailed information about a movie by its IMDb ID.
+   *
+   * @param {string} imbdId - The IMDb ID of the movie to retrieve details for.
+   * @returns {Observable<MovieDetailsModel>} An observable stream of movie details.
+   * Use this method to fetch and subscribe to detailed information about a specific movie.
+   */
   public getMovieDetails(imbdId: string): Observable<MovieDetailsModel> {
     return this.http.get<any>(`${environment.apiUrl}/?tt=${imbdId}`).pipe(
       map((response) => this.mapMovieDetailsDataToModel(response.short)),
@@ -27,6 +41,13 @@ export class MovieService {
     );
   }
 
+  /**
+   * Loads movies from an API based on a search string and updates the movie data subject.
+   *
+   * @param {string} searchString - The search string used to query movies from the API.
+   * This method fetches movies matching the search and updates the movie data subject with the results.
+   * If successful, the movie data subject emits an updated list of movie models.
+   */
   public loadMoviesBySearchString(searchString: string): void {
     this.http
       .get<any>(`${environment.apiUrl}/?q=${searchString}`)
@@ -46,6 +67,9 @@ export class MovieService {
       });
   }
 
+  /**
+   * Maps raw movie data to a MovieModel object.
+   */
   private mapMovieDataToModel(movieData: any): MovieModel {
     return {
       title: movieData['#TITLE'],
@@ -62,6 +86,9 @@ export class MovieService {
     };
   }
 
+  /**
+   * Maps raw movie detail data to a MovieDetailsModel object.
+   */
   private mapMovieDetailsDataToModel(movieData: any): MovieDetailsModel {
     return {
       duration: movieData.duration,
