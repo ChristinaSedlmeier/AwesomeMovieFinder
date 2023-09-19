@@ -1,13 +1,13 @@
-export class MovieModel {
+export interface MovieModel {
     title: string;
     year: number;
-    imbd_id: string;
+    imdbId: string;
     rank: string;
     actors: string;
     aka: string;
-    imbd_url: string;
-    imbd_iv: string;
-    img_poster: string;
-    photo_width: number;
-    photo_height: number;
+    imdbUrl: string;
+    imdbIv: string;
+    imgPoster: string;
+    photoWidth: number;
+    photoHeight: number;
 }

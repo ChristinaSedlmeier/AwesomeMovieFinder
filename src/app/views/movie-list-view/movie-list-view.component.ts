@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MovieModel } from 'src/app/models/movieModel';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -9,18 +9,12 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./movie-list-view.component.scss'],
 })
 export class ListViewComponent implements OnInit {
-  public movieList: MovieModel[];
-  private subscription: Subscription;
+  public movieList$: Observable<MovieModel[]>;
 
   constructor(private movieService: MovieService) {}
 
   public ngOnInit(): void {
-    this.subscription = this.movieService
-      .getMovieData()
-      .subscribe((data) => (this.movieList = data));
+    this.movieList$ = this.movieService.getMovieData()
   }
 
-  public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
 }

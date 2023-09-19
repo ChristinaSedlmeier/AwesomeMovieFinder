@@ -7,8 +7,7 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./search-field.component.scss'],
 })
 export class SearchFieldComponent implements OnInit {
-  private defaultSearchString: string = '1997';
-  public placeholderString: string = 'Harry Potter';
+  private defaultSearchString: string = '2000';
   public userInput: string = '';
 
   constructor(private movieService: MovieService) {}
@@ -19,6 +18,6 @@ export class SearchFieldComponent implements OnInit {
 
   public updateMovieData() {
     const searchString = this.userInput != '' ? this.userInput : this.defaultSearchString;
-    this.movieService.getMoviesBySearchString(searchString);
+    this.movieService.loadMoviesBySearchString(searchString);
   }
 }

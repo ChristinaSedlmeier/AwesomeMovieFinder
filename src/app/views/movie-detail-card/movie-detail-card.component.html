@@ -4,13 +4,21 @@
     <div class="row">
       <div class="col-12 col-md-3">
         <div class="pb-3 pb-md-0">
-          <img [src]="movie.img_poster" class="img-fluid" />
+          <img [src]="movie.imgPoster" class="img-fluid" />
         </div>
       </div>
       <div class="col-12 col-md-9">
-        <p><span class="text-bold">Year: </span>{{ movie.year }}</p>
         <p><span class="text-bold">Actors: </span>{{ movie.actors }}</p>
-        <p><span class="text-bold">Ranking: </span>{{ movie.rank }}</p>
+        <ng-container *ngIf="movieDetails$ | async as movieDetails">
+          <p>
+            <span class="text-bold">Published: </span
+            >{{ movieDetails.datePublished | date }}
+          </p>
+          <p>
+            <span class="text-bold">Description: </span
+            >{{ movieDetails.description }}
+          </p>
+        </ng-container>
       </div>
     </div>
   </mat-card>
