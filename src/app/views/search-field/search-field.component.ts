@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'search-field',
@@ -19,6 +19,6 @@ export class SearchFieldComponent implements OnInit {
 
   public updateMovieData() {
     const searchString = this.userInput != '' ? this.userInput : this.defaultSearchString;
-    this.movieService.loadMoviesBySearchString(searchString);
+    this.movieService.getMoviesBySearchString(searchString);
   }
 }

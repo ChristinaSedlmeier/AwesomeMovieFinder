@@ -16,7 +16,7 @@ export class MovieService {
     return this.movieDataSubject.asObservable();
   }
 
-  public loadMoviesBySearchString(searchString: string): void {
+  public getMoviesBySearchString(searchString: string): void {
     this.http
       .get<any>(`${environment.apiUrl}/?q=${searchString}`)
       .pipe(
