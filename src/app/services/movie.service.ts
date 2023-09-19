@@ -13,11 +13,11 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  public getMovieData(): Observable<MovieModel[]> {
+  public getMovieList(): Observable<MovieModel[]> {
     return this.movieDataSubject.asObservable();
   }
 
-  public getMovieDetailsData(imbdId: string): Observable<MovieDetailsModel> {
+  public getMovieDetails(imbdId: string): Observable<MovieDetailsModel> {
     return this.http.get<any>(`${environment.apiUrl}/?tt=${imbdId}`).pipe(
       map((response) => this.mapMovieDetailsDataToModel(response.short)),
       catchError((error) => {

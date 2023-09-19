@@ -18,6 +18,6 @@ export class MovieDetailCardComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   public ngOnInit(): void {
-    this.movieDetails$ = this.movieService.getMovieDetailsData(this.movie.imdbId);
+    this.movieDetails$ = this.movieService.getMovieDetails(this.movie.imdbId);
   }
 }

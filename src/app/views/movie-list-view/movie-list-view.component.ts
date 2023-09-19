@@ -14,7 +14,6 @@ export class ListViewComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   public ngOnInit(): void {
-    this.movieList$ = this.movieService.getMovieData()
+    this.movieList$ = this.movieService.getMovieList();
   }
-
 }
